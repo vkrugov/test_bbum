@@ -15,6 +15,8 @@ git clone <repo>
 cd task-scheduler
 composer install
 cp .env.example .env
+OR
+cp .env.docker.example .env
 ```
 
 ## Configuration
@@ -22,7 +24,9 @@ cp .env.example .env
 Edit `.env`:
 
 ```
-REDIS_HOST=127.0.0.1
+#REDIS_HOST=127.0.0.1
+#for docker:
+REDIS_HOST=redis
 REDIS_PORT=6379
 REDIS_PASSWORD=
 REDIS_DB=0
@@ -128,19 +132,6 @@ composer test
 ```
 
 ## Docker (local development)
-
-### Quick start
-
-```bash
-cp .env.docker.example .env
-docker compose up --build -d
-```
-
-Open http://localhost — the app should respond immediately.
-
-> **Note:** `.env.docker.example` sets `REDIS_HOST=redis` (the Compose service name).
-> Do **not** use `.env.example` for Docker — it points to `127.0.0.1`.
-
 ### Daily commands
 
 ```bash
@@ -164,12 +155,6 @@ docker compose down
 docker compose down -v
 ```
 
-### Xdebug
-
-The `app` container has Xdebug 3 pre-installed (`mode=debug,develop`).
-Configure your IDE to listen on port **9003** with IDE key **PHPSTORM**.
-On Linux the `extra_hosts: host.docker.internal:host-gateway` entry in
-`docker-compose.yml` routes Xdebug traffic back to the host automatically.
 
 ## Project Structure
 
