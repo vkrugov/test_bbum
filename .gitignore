@@ -1,0 +1,8 @@
+.env
+/vendor/
+/logs/*
+!/logs/.gitkeep
+.idea/
+.vscode/
+*.iml
+*.log

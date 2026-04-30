@@ -1,0 +1,10 @@
+.git
+.idea
+.vscode
+vendor
+node_modules
+logs/*
+!logs/.gitkeep
+.env
+*.log
+tests/_output

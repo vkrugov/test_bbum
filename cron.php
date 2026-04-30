@@ -1,0 +1,9 @@
+<?php
+
+declare(strict_types=1);
+
+require __DIR__ . '/vendor/autoload.php';
+
+$container = require __DIR__ . '/bootstrap.php';
+
+exit((new \App\Application($container))->handleCron());
